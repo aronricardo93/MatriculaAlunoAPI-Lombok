@@ -1,9 +1,10 @@
 package com.curso.tecnico.services;
 
-import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.curso.tecnico.models.Aluno;
@@ -22,15 +23,15 @@ public class AlunoService {
 		return optional.orElseThrow();
 	}
 	
-	public List<Aluno> listarAlunos(){
-		return alunoRepository.findAll();
+	public Page<Aluno> listarAlunos(Pageable pageable){
+		return alunoRepository.findAll(pageable);
 	}
 	
 	public Aluno matricularAluno(Aluno aluno) {
 		return alunoRepository.save(aluno);
 	}
 	
-	public Aluno atualizarrMatriculaAluno(Aluno aluno, Long id) {
+	public Aluno atualizarMatriculaAluno(Aluno aluno, Long id) {
 		Aluno alunoOriginal = this.buscarAluno(id);
 		
 		aluno.setId(alunoOriginal.getId());
@@ -41,6 +42,6 @@ public class AlunoService {
 	public void excluirAluno(Long id) {
 		Aluno alunoOriginal = this.buscarAluno(id);
 		
-		alunoRepository.deleteById(id);
+		alunoRepository.delete(alunoOriginal);
 	}
 }

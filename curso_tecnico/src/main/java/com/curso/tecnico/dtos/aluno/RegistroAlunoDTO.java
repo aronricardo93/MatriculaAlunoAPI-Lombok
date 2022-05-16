@@ -5,7 +5,6 @@ import javax.persistence.OneToOne;
 import org.hibernate.validator.constraints.br.CPF;
 
 import com.curso.tecnico.dtos.curso.RegistroCursoDTO;
-import com.curso.tecnico.models.Curso;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

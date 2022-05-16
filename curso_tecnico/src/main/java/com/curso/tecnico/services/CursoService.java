@@ -1,9 +1,10 @@
 package com.curso.tecnico.services;
 
-import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.curso.tecnico.models.Curso;
@@ -15,8 +16,8 @@ public class CursoService {
 	@Autowired
 	private CursoRepository cursoRepository;
 	
-	public List<Curso> listarCursos(){
-		return cursoRepository.findAll();
+	public Page<Curso> listarCursos(Pageable pageable){
+		return cursoRepository.findAll(pageable);
 	}
 	
 	public Curso buscarCurso(Long id) {
@@ -40,6 +41,6 @@ public class CursoService {
 	public void excluirCurso(Long id) {
 		Curso cursoOriginal = this.buscarCurso(id);
 		
-		cursoRepository.deleteById(id);
+		cursoRepository.delete(cursoOriginal);
 	}
 }
