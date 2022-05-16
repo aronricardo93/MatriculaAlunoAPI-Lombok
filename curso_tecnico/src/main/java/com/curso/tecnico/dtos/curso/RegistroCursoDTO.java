@@ -1,5 +1,13 @@
 package com.curso.tecnico.dtos.curso;
 
-public class RegistroCursoDTO {
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+@Getter @Setter @NoArgsConstructor @AllArgsConstructor
+public class RegistroCursoDTO {
+	
+	private Long id;
+	
 }

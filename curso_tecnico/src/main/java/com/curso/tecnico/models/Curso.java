@@ -2,6 +2,7 @@ package com.curso.tecnico.models;
 
 import java.util.List;
 
+import javax.persistence.Embeddable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,6 +21,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Embeddable
 public class Curso {
 	
 	@Id
@@ -30,4 +32,10 @@ public class Curso {
 	
 	@OneToMany
 	private List<Aluno> alunos;
+
+	public Curso(Long id) {
+		this.id = id;
+	}
+	
+	
 }
