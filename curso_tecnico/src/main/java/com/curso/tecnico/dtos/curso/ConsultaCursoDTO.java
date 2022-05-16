@@ -10,4 +10,6 @@ public class ConsultaCursoDTO {
 
 	private Long id; 
 	
+	private String nome;
+	
 }

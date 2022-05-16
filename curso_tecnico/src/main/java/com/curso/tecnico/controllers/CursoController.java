@@ -20,7 +20,7 @@ import com.curso.tecnico.models.Curso;
 import com.curso.tecnico.services.CursoService;
 
 @RestController
-@RequestMapping("api/cursos")
+@RequestMapping("api/v1/cursos")
 public class CursoController {
 
 	@Autowired

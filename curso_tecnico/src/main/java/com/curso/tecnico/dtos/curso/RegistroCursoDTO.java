@@ -10,4 +10,6 @@ public class RegistroCursoDTO {
 	
 	private Long id;
 	
+	private String nome;
+	
 }
